@@ -6,3 +6,354 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 20px;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, #7ed56fc2, #28b485a6),
+    url("../img/hero.jpg");
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  /* clip-path: polygon(50% 0,50% 100%,100% 0, 0 100%); */
+  /* clip-path: polygon(50% 0,100% 50%, 0 100%,100% 0 ); */
+  /* clip-path: polygon(50% 0, 100% 100%,   0 100%); */
+}
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+.logo {
+  height: 35px;
+}
+
+.header-text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.heading-primary {
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 60px;
+  /* Remove shake */
+  backface-visibility: hidden;
+}
+.heading-primary-main {
+  display: block;
+  background: linear-gradient(to right bottom, #f9fcf9, #d3d2a5);
+  background-clip: text;
+  color: transparent;
+
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 35px;
+  /* practice */
+  animation-name: moveInLeft;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  /* animation-iteration-count: 2; */
+  /* animation-delay: 1s; */
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  animation: moveInRight 3s ease-in-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s;
+  position: relative;
+ 
+}
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  padding: 15px 40px;
+  border-radius: 100px;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  /* best */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.btn:active {
+  transform: translateY(-1px);
+  /* best */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.btn::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  border-radius: 100px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .3s ease-in;
+  background-color: #ebe8e4;
+}
+ 
+.btn:hover::after {
+
+  opacity: 0;
+  transform: scaleX(1.3) scaleY(1.5);
+}
+.btn-animated{
+  animation: moveInBottom .5s ease-out .75s;
+  /* connect with delay */
+  animation-fill-mode: backwards;
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+ 
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* extra practice */
+
+/* Classes that will show or hide the
+   three back faces of the "cube" */
+/*
+    <table>
+        <tr>
+          <th><code>backface-visibility: visible;</code></th>
+          <th><code>backface-visibility: hidden;</code></th>
+        </tr>
+        <tr>
+          <td>
+            <div class="container">
+              <div class="cube showbf">
+                <div class="face front">1</div>
+                <div class="face back">2</div>
+                <div class="face right">3</div>
+                <div class="face left">4</div>
+                <div class="face top">5</div>
+                <div class="face bottom">6</div>
+              </div>
+            </div>
+            
+          </td>
+          <td>
+            <div class="container">
+              <div class="cube hidebf">
+                <div class="face front">1</div>
+                <div class="face back">2</div>
+                <div class="face right">3</div>
+                <div class="face left">4</div>
+                <div class="face top">5</div>
+                <div class="face bottom">6</div>
+              </div>
+            </div>
+         
+          </td>
+        </tr>
+      </table>
+    <div class="container-practice">
+.showbf div {
+  backface-visibility: visible;
+}
+
+.hidebf div {
+  backface-visibility: hidden;
+}
+
+ 
+.container {
+  width: 150px;
+  height: 150px;
+  margin: 75px 0 0 75px;
+  border: none;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  perspective: 550px;
+  perspective-origin: 150% 150%;
+  transform-style: preserve-3d;
+}
+
+.face {
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: none;
+  line-height: 100px;
+  font-family: sans-serif;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
+
+ 
+.front {
+  background: rgb(0 0 0 / 30%);
+  transform: translateZ(50px);
+}
+
+.back {
+  background: rgb(0 255 0 / 100%);
+  color: black;
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  background: rgb(196 0 0 / 70%);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  background: rgb(0 0 196 / 70%);
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  background: rgb(196 196 0 / 70%);
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  background: rgb(196 0 196 / 70%);
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+ 
+th,
+p,
+td {
+  background-color: #eeeeee;
+  margin: 0px;
+  padding: 6px;
+  font-family: sans-serif;
+  text-align: left;
+}
+
+    <div class="practice-0 practice">
+        
+        <h2>font </h2>
+      </div>
+      <div class="practice-1 practice">
+        
+        <h2>Persepective 1 </h2>
+      </div>
+      <div class="practice-2 practice">
+        
+        <h2>Persepective 2 </h2>
+      </div>
+.container-practice
+{
+  width: 200px;
+  height: 200px;
+  border: 2px solid;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  backface-visibility: visible;
+  perspective: 50px;
+  background-color: black;
+ 
+ perspective-origin: -210% 22%;
+ transform-style: preserve-3d;
+ 
+}
+.practice{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+}
+.practice-1{
+ 
+  background-color: #886a2ac2;
+  perspective-origin:top;  
+  transform: rotateY(180deg) translateZ(50px) ;
+  text-align: center;
+  transform-origin:left center ;
+  
+}
+.practice-2{
+ 
+  background-color: #485370c2;
+  perspective-origin: right;  
+  transform: rotateY(90deg)  translateZ(50px);
+  text-align: center;
+ 
+}
+.practice-0{
+ 
+  transform: translateZ(20px);
+  background-color: #bb4343;
+}
+.practice h2{
+  color: #f9fcf9;
+  text-shadow: 2px 2px 5px rgb(161, 124, 124);
+
+}
+
+*/
