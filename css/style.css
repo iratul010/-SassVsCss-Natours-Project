@@ -6,15 +6,14 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-
 *,
 *::after,
 *::before {
   padding: 0;
   margin: 0;
   /* all for works */
-  box-sizing: inherit;
-}
+  box-sizing: inherit; }
+
 html {
   /*  
   target 10 px make default font-size. 
@@ -23,8 +22,7 @@ html {
   =0.625*100
   =62.5%
   */
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
 
 body {
   font-family: "Lato", sans-serif;
@@ -33,49 +31,45 @@ body {
   font-weight: 400;
   line-height: 1.7;
   color: #777;
-  padding: 20px;
-}
+  padding: 20px; }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, #7ed56fc2, #28b485a6),
-    url("../img/hero.jpg");
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
   background-position: top;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   /* clip-path: polygon(50% 0,50% 100%,100% 0, 0 100%); */
   /* clip-path: polygon(50% 0,100% 50%, 0 100%,100% 0 ); */
-  /* clip-path: polygon(50% 0, 100% 100%,   0 100%); */
-}
-.logo-box {
+  /* clip-path: polygon(50% 0, 100% 100%,   0 100%); */ }
+
+.header__logo-box {
   position: absolute;
   top: 4rem;
-  left: 4rem;
-}
-.logo {
-  height: 35px;
-}
+  left: 4rem; }
 
-.header-text-box {
+.header__logo {
+  height: 35px; }
+
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
-}
-.heading-primary {
+  text-align: center; }
+
+.heading__primary {
   text-transform: uppercase;
   color: #fff;
   margin-bottom: 6rem;
   /* Remove shake */
-  backface-visibility: hidden;
-}
-.heading-primary-main {
+  backface-visibility: hidden; }
+
+.heading__primary-main {
   display: block;
   background: linear-gradient(to right bottom, #f9fcf9, #d3d2a5);
   background-clip: text;
   color: transparent;
-
   font-size: 6rem;
   font-weight: 700;
   letter-spacing: 3.5rem;
@@ -84,46 +78,37 @@ body {
   animation-duration: 3s;
   animation-timing-function: ease-in-out;
   /* animation-iteration-count: 2; */
-  /* animation-delay: 1s; */
-}
+  /* animation-delay: 1s; */ }
 
-.heading-primary-sub {
+.heading__primary-sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.74rem;
   animation: moveInRight 3s ease-in-out;
-}
+  color: #fff; }
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem);
-  }
+    transform: translateX(-10rem); }
   80% {
     opacity: 1;
-    transform: translateX(1rem);
-  }
+    transform: translateX(1rem); }
   100% {
     opacity: 1;
-    transform: translateX(0);
-  }
-}
+    transform: translateX(0); } }
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(10rem);
-  }
+    transform: translateX(10rem); }
   80% {
     opacity: 1;
-    transform: translateX(-1rem);
-  }
+    transform: translateX(-1rem); }
   100% {
     opacity: 1;
-    transform: translateX(0);
-  }
-}
+    transform: translateX(0); } }
 
 .btn:link,
 .btn:visited {
@@ -132,24 +117,24 @@ body {
   display: inline-block;
   transition: all 0.3s;
   position: relative;
-  font-size: 1.6rem;
-}
-.btn-white {
+  font-size: 1.6rem; }
+
+.btn--white {
   background-color: #fff;
   color: #777;
   padding: 1.5rem 4rem;
-  border-radius: 10rem;
-}
+  border-radius: 10rem; }
+
 .btn:hover {
   transform: translateY(-0.3rem);
   /* best */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+
 .btn:active {
   transform: translateY(-0.1rem);
   /* best */
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
 .btn::after {
   content: "";
   width: 100%;
@@ -161,31 +146,26 @@ body {
   left: 0;
   z-index: -1;
   transition: all 0.3s ease-in;
-  background-color: #ebe8e4;
-}
+  background-color: #ebe8e4; }
 
 .btn:hover::after {
   opacity: 0;
-  transform: scaleX(1.3) scaleY(1.5);
-}
-.btn-animated {
+  transform: scaleX(1.3) scaleY(1.5); }
+
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   /* connect with delay */
-  animation-fill-mode: backwards;
-}
+  animation-fill-mode: backwards; }
+
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(5rem);
-  }
-
+    transform: translateY(5rem); }
   100% {
     opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* extra practice */
+    transform: translateY(0); } }
 
+/* extra practice */
 /* Classes that will show or hide the
    three back faces of the "cube" */
 /*
