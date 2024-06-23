@@ -1,199 +1,22 @@
-/*
-COLORS:
+// abstracts
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
+// base
+@import "base/base";
+@import "base/typography";
+@import "base/animations";
+@import "base/utilites";
 
-*/
-$color-primary: #55c57a;
-$color-primary-light: #7ed56f;
-$color-primary-dark: #28b485;
-$color-grey-dark: #777;
-$color-white: #fff;
-$color-black:#000;
-*,
-*::after,
-*::before {
-  padding: 0;
-  margin: 0;
-  /* all for works */
-  box-sizing: inherit;
-}
-html {
-  /*  
-  target 10 px make default font-size. 
-  so, now 
-  10/16
-  =0.625*100
-  =62.5%
-  */
-  font-size: 62.5%;
-}
+// components
+@import "components/button";
 
-body {
-  font-family: "Lato", sans-serif;
-  /* parent */
-  box-sizing: border-box;
-  font-weight: 400;
-  line-height: 1.7;
-  color: $color-grey-dark;
-  padding: 20px;
-}
+// layouts
+@import "layout/header";
+// pages
+@import "pages/home";
 
-.header {
-  height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8)
-    ),
-    url("../img/hero.jpg");
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  /* clip-path: polygon(50% 0,50% 100%,100% 0, 0 100%); */
-  /* clip-path: polygon(50% 0,100% 50%, 0 100%,100% 0 ); */
-  /* clip-path: polygon(50% 0, 100% 100%,   0 100%); */
-}
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
-.header__logo {
-  height: 35px;
-}
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.heading__primary {
-  text-transform: uppercase;
-  color: $color-white;
-  margin-bottom: 6rem;
-  /* Remove shake */
-  backface-visibility: hidden;
-}
-.heading__primary-main {
-  display: block;
-  background: linear-gradient(to right bottom, #f9fcf9, #d3d2a5);
-  background-clip: text;
-  color: transparent;
-
-  font-size: 6rem;
-  font-weight: 700;
-  letter-spacing: 3.5rem;
-  /* practice */
-  animation-name: moveInLeft;
-  animation-duration: 3s;
-  animation-timing-function: ease-in-out;
-  /* animation-iteration-count: 2; */
-  /* animation-delay: 1s; */
-}
-
-.heading__primary-sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.74rem;
-  animation: moveInRight 3s ease-in-out;
-  color: $color-white;
-}
-
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem);
-  }
-  80% {
-    opacity: 1;
-    transform: translateX(1rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem);
-  }
-  80% {
-    opacity: 1;
-    transform: translateX(-1rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s;
-  position: relative;
-  font-size: 1.6rem;
-}
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-  padding: 1.5rem 4rem;
-  border-radius: 10rem;
-}
-.btn:hover {
-  transform: translateY(-0.3rem);
-  /* best */
-  box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-}
-.btn:active {
-  transform: translateY(-0.1rem);
-  /* best */
-  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
-}
-.btn::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-  position: absolute;
-  border-radius: 10rem;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.3s ease-in;
-  background-color: #ebe8e4;
-}
-
-.btn:hover::after {
-  opacity: 0;
-  transform: scaleX(1.3) scaleY(1.5);
-}
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  /* connect with delay */
-  animation-fill-mode: backwards;
-}
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(5rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 /* extra practice */
 
 /* Classes that will show or hide the
