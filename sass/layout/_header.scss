@@ -31,36 +31,3 @@
     text-align: center;
   }
 }
-
-.heading__primary {
-  text-transform: uppercase;
-  color: $color-white;
-  margin-bottom: 6rem;
-  /* Remove shake */
-  backface-visibility: hidden;
-
-  &--main {
-    display: block;
-    background: linear-gradient(to right bottom, #f9fcf9, #d3d2a5);
-    background-clip: text;
-    color: transparent;
-
-    font-size: 6rem;
-    font-weight: 700;
-    letter-spacing: 3.5rem;
-    /* practice */
-    animation-name: moveInLeft;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-    /* animation-iteration-count: 2; */
-    /* animation-delay: 1s; */
-  }
-  &--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.74rem;
-    animation: moveInRight 3s ease-in-out;
-    color: $color-white;
-  }
-}
