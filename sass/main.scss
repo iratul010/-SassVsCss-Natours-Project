@@ -6,7 +6,7 @@
 // base
 @import "base/base";
 @import "base/typography";
-@import "base/animations";
+@import "base/animation";
 @import "base/utilites";
 
 // components
@@ -14,6 +14,7 @@
 
 // layouts
 @import "layout/header";
+@import "layout/grid";
 
 // pages
 @import "pages/home";
