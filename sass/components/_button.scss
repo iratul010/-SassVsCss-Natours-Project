@@ -13,6 +13,18 @@
     color: $color-grey-dark;
     padding: 1.5rem 4rem;
     border-radius: 10rem;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  &--green {
+    background-color: $color-primary;
+    color: $color-grey-light-1;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    &::after {
+      background-color: $color-primary;
+    }
   }
   &:hover {
     /* best */
@@ -38,7 +50,6 @@
     left: 0;
     z-index: -1;
     transition: all 0.3s ease-in;
-    background-color: #ebe8e4;
   }
 
   &--animated {
