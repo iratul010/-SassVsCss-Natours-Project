@@ -245,7 +245,7 @@
         </div>
       </section>
       <section class="section-stories">
-        <div class="bg-video" >
+        <div class="bg-video">
           <video class="bg-video__content" autoplay muted loop>
             <source src="/img/video.mp4" type="video/mp4" />
             <source src="/img/video.mp4" type="video/webm" />
@@ -300,6 +300,73 @@
         </div>
         <div class="u-center-text">
           <a href="#" class="btn small__btn-text">read all stories &rarr;</a>
+        </div>
+      </section>
+      <section class="section-book">
+        <div class="row">
+          <div class="book">
+            <div class="book__form">
+              <form action="" class="form">
+                <div class="u-margin-bottom-medium">
+                  <h2 class="heading__secondary">Start Booking Now</h2>
+                </div>
+                <div class="form__group">
+                  <input
+                    type="text"
+                    id="name"
+                    class="form__input"
+                    placeholder="Full name"
+                    required
+                  />
+                  <label for="name" class="form__label">Full Name</label>
+                </div>
+                <div class="form__group">
+                  <input
+                    type="email"
+                    id="email"
+                    class="form__input"
+                    placeholder="Email address"
+                    required
+                  />
+                  <label for="email" class="form__label">Email Address</label>
+                </div>
+
+                <div class="form__group u-margin-bottom-medium">
+                  <div class="form__radio--group">
+                    <!-- same: name="size" use for troggle radio select  -->
+                    <input
+                      type="radio"
+                      class="form__radio--input"
+                      id="small"
+                      name="size"
+                    />
+                    <label for="small" class="form__radio--label">
+                      <!-- can't style in css thats why create this below element ⬇️  -->
+                      <span class="form__radio--button"></span>
+                      Small tour groups
+                    </label>
+                  </div>
+                  <div class="form__radio--group">
+                    <input
+                      type="radio"
+                      class="form__radio--input"
+                      id="large"
+                      name="size"
+                    />
+                    <label for="large" class="form__radio--label">
+                      <span class="form__radio--button"></span>
+                      Large tour groups
+                    </label>
+                  </div>
+                </div>
+                <div class="form__group">
+                  <button href="#" class="btn btn--green">
+                    Next step &rarr;
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
     </main>
