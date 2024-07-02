@@ -1,0 +1,83 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black, $alpha: 0.8);
+  z-index: 3000;
+  //not best way for select display none for select animated before hidden animation part , now best solution is ⬇️
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &__content {
+    @include absCenter;
+    background-color: $color-white;
+    width: 75%;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    border-radius: 3px;
+    display: table; //আলাদা করে ইমেইজ এর height use করতে হবেনা!
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+    transition: all 0.5s 0.2s;
+  }
+
+  &__left,
+  &__right {
+    display: table-cell;
+  }
+  &__left {
+    width: 33.3333%;
+  }
+  &__right {
+    width: 66.6667%;
+    vertical-align: middle; //when use table,table-ceil
+    padding: 3rem 5rem;
+  }
+  &__img {
+    display: block;
+    width: 100%;
+  }
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+    -moz-column-count: 2;
+    -moz-column-gap: 4rem;
+    -moz-column-rule: 1px solid $color-grey-light-2;
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid $color-grey-light-2;
+    //when word break as like me-mory
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  &__close {
+    &:link,
+    &:visited {
+      position: absolute; //parent element এর সব থেকে কাছে যার মধ্যে পজিশন দেয়া আছে সেটার উপর কাজ করবে : .popup:->pos: fixed
+      top: 2.5rem;
+      right: 2.5rem;
+      display: inline-block;
+      text-decoration: none;
+      font-size: 3rem;
+      color: $color-grey-dark;
+      transition: all 0.2s;
+      line-height: 1;
+    }
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
